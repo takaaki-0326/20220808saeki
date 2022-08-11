@@ -9,7 +9,7 @@
     <div class="container">
         <div class="card">
             <p>Todo List</p>
-            <p>{{ $user->name . 'メール' . $user->email . '' }}でログイン中</p>
+            <p>{{ $user->name }}でログイン中</p>
             @if (count($errors) > 0)
                 <ul>
                     @foreach ($errors->all() as $error)

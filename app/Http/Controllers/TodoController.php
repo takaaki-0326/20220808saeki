@@ -11,7 +11,7 @@ class TodoController extends Controller
 {
     public function index()
     {
-        $user = Todo::user();
+        $user = Auth::user();
         $todos = Todo::all();
         $param = ['todos' => $todos, 'user' => $user];
         return view('index', $param);
