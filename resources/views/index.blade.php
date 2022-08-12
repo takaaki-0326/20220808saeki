@@ -15,10 +15,7 @@
                     <input type="submit" value="ログアウト">
                 </form>
             </div>
-            <form action="/todo/find" method="get">
-                    @csrf
-                    <input type="submit" value="タスク検索">
-            </form>
+            <a href="/todo/find">タスク検索</a>
             @if (count($errors) > 0)
                 <ul>
                     @foreach ($errors->all() as $error)

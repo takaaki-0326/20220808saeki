@@ -40,7 +40,10 @@ class TodoController extends Controller
 
     public function find()
     {
-        return view('find', ['input' => '']);
+        $user = Auth::user();
+        $todos = Todo::all();
+        $param = ['todos' => $todos, 'user' => $user];
+        return view('find', $param, ['input' => '']);
     }
     public function search(Request $request)
     {

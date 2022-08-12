@@ -19,10 +19,11 @@ Route::prefix('/todo')->group(function () {
     Route::post('create', [TodoController::class, 'create'])->name('todo.create');
     Route::post('update', [TodoController::class, 'update'])->name('todo.update');
     Route::post('delete', [TodoController::class, 'delete'])->name('todo.delete');
+    Route::get('find', [TodoController::class, 'find'])->name('todo.find');
+    Route::post('find', [TodoController::class, 'search'])->name('todo.search');
 });
 
-Route::get('/todo/find', [TodoController::class, 'find']);
-    Route::post('/todo/find', [TodoController::class, 'search']);
+
 
 
 Route::get('/', function () {
