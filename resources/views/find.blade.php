@@ -9,16 +9,13 @@
     <div class="container">
         <div class="card">
             <div class="unit">
-                <p>Todo List</p>
+                <p>タスク検索</p>
                 <p>「{{ $user->name }}」でログイン中</p>
                 <form method="POST" action="{{ route('logout') }}">
                     <input type="submit" value="ログアウト">
                 </form>
             </div>
-            <form action="/todo/find" method="get">
-                    @csrf
-                    <input type="submit" value="タスク検索">
-            </form>
+            
             @if (count($errors) > 0)
                 <ul>
                     @foreach ($errors->all() as $error)

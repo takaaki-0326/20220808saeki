@@ -37,6 +37,21 @@ class TodoController extends Controller
         Todo::find($request->id)->delete();
         return redirect('/');
     }
+
+    public function find()
+    {
+        return view('find', ['input' => '']);
+    }
+    public function search(Request $request)
+    {
+        $todo = Todo::where('content', 'LIKE BINARY', "%{$request->input}%")->get();
+        $param = [
+            'input' => $request->input,
+            'todo' => $todo
+        ];
+        return view('find', $param);
+    }
+
 }
 
 // public function index()

@@ -13,13 +13,17 @@ use App\Http\Controllers\TodoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/home', [TodoController::class, 'index'])->name('todo.index');;
+Route::get('/home', [TodoController::class, 'index'])->name('todo.index');
 
 Route::prefix('/todo')->group(function () {
     Route::post('create', [TodoController::class, 'create'])->name('todo.create');
     Route::post('update', [TodoController::class, 'update'])->name('todo.update');
     Route::post('delete', [TodoController::class, 'delete'])->name('todo.delete');
 });
+
+Route::get('/todo/find', [TodoController::class, 'find']);
+    Route::post('/todo/find', [TodoController::class, 'search']);
+
 
 Route::get('/', function () {
     return view('auth.login');
