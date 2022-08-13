@@ -21,7 +21,7 @@ class TodoController extends Controller
     {
         $form = $request->all();
         Todo::create($form);
-        return redirect('/');
+        return redirect('/home');
     }
 
     public function update(TodoRequest $request)
@@ -29,20 +29,20 @@ class TodoController extends Controller
         $form = $request->all();
         unset($form['_token']);
         Todo::where('id', $request->id)->update($form);
-        return redirect('/');
+        return redirect('/home');
     }
 
     public function delete(Request $request)
     {
         Todo::find($request->id)->delete();
-        return redirect('/');
+        return redirect('/home');
     }
     public function find()
     {
         $user = Auth::user();
         $todos = Todo::all();
         $param = ['todos' => $todos, 'user' => $user];
-        return view('find', $param, ['content' => '']);
+        return view('find', $param);
     }
     public function search(Request $request)
     {
