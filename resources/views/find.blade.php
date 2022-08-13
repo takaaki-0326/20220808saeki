@@ -37,7 +37,9 @@
                         <th>更新</th>
                         <th>削除</th>
                     </tr>
-                    @if (@isset($todo))
+                    @if (@isset($content))
+
+                    @foreach ($todos as $todo)
                     <tr>
                         <td>
                         {{$todo->created_at}}
@@ -58,6 +60,7 @@
                             </form>
                         </td>
                     </tr>
+                    @endforeach
                     @endif
 
 

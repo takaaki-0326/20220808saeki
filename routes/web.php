@@ -20,7 +20,7 @@ Route::prefix('/todo')->group(function () {
     Route::post('update', [TodoController::class, 'update'])->name('todo.update');
     Route::post('delete', [TodoController::class, 'delete'])->name('todo.delete');
     Route::get('find', [TodoController::class, 'find'])->name('todo.find');
-    Route::post('find', [TodoController::class, 'search'])->name('todo.search');
+    Route::post('search', [TodoController::class, 'search'])->name('todo.search');
 });
 
 
